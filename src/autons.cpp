@@ -2,10 +2,7 @@
 #include "autons.hpp"
 #include "main.h"
 
-/////
-// For instalattion, upgrading, documentations and tutorials, check out website!
-// https://ez-robotics.github.io/EZ-Template/
-/////
+
 
 const int DRIVE_SPEED = 110;  // This is 110/127 (around 87% of max speed).  We don't suggest making this 127.
                               // If this is 127 and the robot tries to heading correct, it's only correcting by
@@ -204,7 +201,7 @@ void tug(int attempts) {
   }
 }
 
-// If there is no interference, robot will drive forward and turn 90 degrees.
+// If there is no interference, robot will drive forward and turn 90 degrees!
 // If interfered, robot will drive forward and then attempt to drive backwards.
 void interfered_example() {
   chassis.set_drive_pid(24, DRIVE_SPEED, true);
@@ -274,6 +271,57 @@ void bigDoolAutonR() {
   chassis.set_drive_pid(76, 127);
   chassis.wait_drive();
   arm.set_value(!arm.get_value());
+}
+
+void dool2R()
+{
+  arm.set_value(!arm.get_value()); 
+  //chassis.set_swing_pid(ez::RIGHT_SWING, -10, SWING_SPEED);
+  //chassis.wait_drive();
+  chassis.set_drive_pid(10,80);
+  chassis.wait_drive();
+  chassis.set_drive_pid(70, 127);
+  chassis.wait_drive();
+  chassis.set_turn_pid(90, 127);
+  chassis.wait_drive();
+  setIntake(127);
+  pros::delay(500);
+  cataBysnc();
+  chassis.set_drive_pid(-52,127);
+  chassis.wait_drive();
+  setIntake(0);
+  chassis.set_swing_pid(ez::RIGHT_SWING, 45, SWING_SPEED);
+  chassis.wait_drive();
+  setIntake(-127);
+  chassis.set_drive_pid(15,127);
+  chassis.wait_drive();
+  chassis.set_swing_pid(ez::RIGHT_SWING, 90, SWING_SPEED);
+  chassis.wait_drive();
+  setIntake(0);
+  chassis.set_drive_pid(15,127);
+  setIntake(127);
+  chassis.wait_drive();
+  pros :: delay(500);
+  chassis.set_turn_pid(-65,127);
+  chassis.wait_drive();
+  setIntake(-127);
+  chassis.set_drive_pid(20,127);
+  chassis.wait_drive();
+  chassis.set_drive_pid(-20,127);
+  chassis.wait_drive();
+  chassis.set_turn_pid(90,127);
+  chassis.wait_drive();
+  setIntake(127);
+  chassis.set_drive_pid(-24,127);
+  chassis.wait_drive();
+  setIntake(-127);
+  chassis.set_turn_pid(205,127);
+  chassis.wait_drive();
+  chassis.set_drive_pid(10,127);
+  chassis.wait_drive();
+  chassis.set_turn_pid(90,127);
+  chassis.wait_drive();
+
 }
 
 void bitchassAutonL() {

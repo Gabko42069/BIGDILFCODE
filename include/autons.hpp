@@ -12,6 +12,7 @@ void swing_example();
 void combining_movements();
 void interfered_example();
 
+void dool2R();
 void bigDoolAutonR();
 void bitchassAutonL();
 void autonSkills();

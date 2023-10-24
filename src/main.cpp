@@ -1,5 +1,6 @@
 #include "main.h"
 #include "pros/llemu.hpp"
+#include "pros/misc.h"
 
 
 // Chassis constructor
@@ -72,14 +73,12 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.add_autons({
-    Auton("DOOL2(Right)", dool2R),
-    Auton("FukBichsGetMoney(Right)",bigDoolAutonR),
+    Auton("ENDGAME LEFT", endgameL),
+    Auton("WING SCORING RIGHT", DOOL3R),
+    Auton("SCORING(Right)", dool2R),
+    Auton("CORNER GRAB LEFT",bitchassAutonL),
+    Auton("Guarenteed 2 Right(Right)",bigDoolAutonR),
     Auton("autonSkills",autonSkills),
-    Auton("FukBichsGetMoney(Left) ",bitchassAutonL),
-    Auton("Example Turn\n\nTurn 3 times.", turn_example),
-    Auton("Drive and Turn\n\nDrive forward, turn, come back. ", drive_and_turn),
-    Auton("Drive and Turn\n\nSlow down during drive.", wait_until_change_speed),
-    Auton("Swing Example\n\nSwing, drive, swing.", swing_example),
   });
 
   // Initialize chassis and auton selector
@@ -153,9 +152,9 @@ void autonomous() {
 void opcontrol() {
   // This is preference to what you like to drive on.
   chassis.set_drive_brake(MOTOR_BRAKE_COAST);
-  colorSensor.set_led_pwm(100);
+  colorSensor.set_led_pwm(0);
   pros::lcd::initialize();
-  pros::lcd::set_text(1, "fuck u hyunsuh");
+  pros::lcd::set_text(1, "DONT PLAY WIT ME STAY WIT ME, BIGDILF");
   while (true) {
 
     chassis.tank(); // Tank control
@@ -169,6 +168,11 @@ void opcontrol() {
     controlIntake(); 
     controlPistons();
     controlCata();
+    
+    if(controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN))
+    {
+      pluh();
+    }
     pros::delay(ez::util::DELAY_TIME); // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
 }

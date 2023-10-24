@@ -11,10 +11,14 @@ void wait_until_change_speed();
 void swing_example();
 void combining_movements();
 void interfered_example();
+void MEGALAZY();
 
+void DOOL3R(); 
 void dool2R();
 void bigDoolAutonR();
 void bitchassAutonL();
+void endgameL();
+void pluh();
 void autonSkills();
 
 void default_constants();

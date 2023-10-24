@@ -30,11 +30,14 @@ void controlCata()
 
     if (lazyMode)
     {
-      if(colorSensor.get_proximity()>= 180)
+      colorSensor.set_led_pwm(100);
+      if(colorSensor.get_proximity()>= 70 && limitswitch.get_value() )
       {
-        cataAysnc();
+        pros :: Task(cataAysnc, TASK_PRIORITY_MIN);
+        pros :: delay (400);
       }
     }
+    
     
     
 }

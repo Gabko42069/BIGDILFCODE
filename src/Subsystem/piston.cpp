@@ -29,3 +29,9 @@ void controlPistons()
         leftWing.set_value(!leftWing.get_value());
     }
 }
+
+void ledouble()
+{
+    rightWing.set_value(!rightWing.get_value());
+    leftWing.set_value(!leftWing.get_value());
+}

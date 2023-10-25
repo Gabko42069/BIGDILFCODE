@@ -1,8 +1,8 @@
-#include "EZ-Template/util.hpp"
 #include "autons.hpp"
+
+#include "EZ-Template/util.hpp"
+#include "lemlib/api.hpp"
 #include "main.h"
-
-
 
 const int DRIVE_SPEED = 110;  // This is 110/127 (around 87% of max speed).  We don't suggest making this 127.
                               // If this is 127 and the robot tries to heading correct, it's only correcting by
@@ -216,9 +216,7 @@ void interfered_example() {
   chassis.wait_drive();
 }
 
-
-void MEGALAZY()
-{
+void MEGALAZY() {
   arm.set_value(!arm.get_value());
   chassis.set_turn_pid(-30, 80);
   chassis.wait_drive();
@@ -247,7 +245,6 @@ void MEGALAZY()
 // Make your own autonomous functions here!
 // . . .
 // MULTIPLY BY 2
-
 
 void bigDoolAutonR() {
   cataBysnc();
@@ -302,53 +299,53 @@ void bigDoolAutonR() {
   arm.set_value(!arm.get_value());
 }
 
-void DOOL3R() // 2nd arm triball 
+void DOOL3R()  // 2nd arm triball
 {
-  arm.set_value(!arm.get_value()); 
-  chassis.set_drive_pid(10,80);
+  arm.set_value(!arm.get_value());
+  chassis.set_drive_pid(10, 80);
   chassis.wait_drive();
   chassis.set_drive_pid(70, 127);
   chassis.wait_drive();
-  chassis.set_turn_pid(90, 127); //
+  chassis.set_turn_pid(90, 127);  //
   chassis.wait_drive();
   setIntake(127);
   cataBysnc();
-  chassis.set_drive_pid(-41,127); // first backup
+  chassis.set_drive_pid(-41, 127);  // first backup
   chassis.wait_drive();
-  chassis.set_turn_pid(-45,80);// turn to 3rd tribal 
+  chassis.set_turn_pid(-45, 80);  // turn to 3rd tribal
   chassis.wait_drive();
   setIntake(-127);
-  chassis.set_drive_pid(14,127);
+  chassis.set_drive_pid(14, 127);
   chassis.wait_drive();
   rightWing.set_value(!rightWing.get_value());
-  chassis.set_drive_pid(-10,127);
+  chassis.set_drive_pid(-10, 127);
   chassis.wait_drive();
   rightWing.set_value(!rightWing.get_value());
   chassis.set_turn_pid(-90, 127);
   chassis.wait_drive();
-  chassis.set_turn_pid(85,127);
-  //rightWing.set_value(!rightWing.get_value());
+  chassis.set_turn_pid(85, 127);
+  // rightWing.set_value(!rightWing.get_value());
   chassis.wait_drive();
- // rightWing.set_value(!rightWing.get_value());
+  // rightWing.set_value(!rightWing.get_value());
   setIntake(127);
-  pros :: delay(1000);
-  chassis.set_turn_pid(225,127);
+  pros ::delay(1000);
+  chassis.set_turn_pid(225, 127);
   chassis.wait_drive();
   setIntake(-127);
-  chassis.set_drive_pid(12,100);
+  chassis.set_drive_pid(12, 100);
   chassis.wait_drive();
-  chassis.set_drive_pid(-12,100);
+  chassis.set_drive_pid(-12, 100);
   chassis.wait_drive();
-  chassis.set_turn_pid(87,127);
+  chassis.set_turn_pid(87, 127);
   chassis.wait_drive();
   setIntake(127);
-  chassis.set_drive_pid(-10,127);
+  chassis.set_drive_pid(-10, 127);
   chassis.wait_drive();
   setIntake(0);
-  chassis.set_turn_pid(-90,127);
+  chassis.set_turn_pid(-90, 127);
   chassis.wait_drive();
   ledouble();
-  chassis.set_drive_pid(-100,127);
+  chassis.set_drive_pid(-100, 127);
   chassis.wait_until(-50);
   ledouble();
   chassis.set_swing_pid(RIGHT_SWING, -135, SWING_SPEED);
@@ -357,58 +354,57 @@ void DOOL3R() // 2nd arm triball
   chassis.wait_drive();
   arm.set_value(!arm.get_value());
 }
-void dool2R()
-{
-  arm.set_value(!arm.get_value()); 
-  //chassis.set_swing_pid(ez::RIGHT_SWING, -10, SWING_SPEED);
-  //chassis.wait_drive();
-  chassis.set_drive_pid(10,80);
+void dool2R() {
+  arm.set_value(!arm.get_value());
+  // chassis.set_swing_pid(ez::RIGHT_SWING, -10, SWING_SPEED);
+  // chassis.wait_drive();
+  chassis.set_drive_pid(10, 80);
   chassis.wait_drive();
   chassis.set_drive_pid(70, 127);
   chassis.wait_drive();
-  chassis.set_turn_pid(90, 127); //
+  chassis.set_turn_pid(90, 127);  //
   chassis.wait_drive();
   setIntake(127);
   cataBysnc();
-  chassis.set_drive_pid(-52,127);
+  chassis.set_drive_pid(-52, 127);
   chassis.wait_drive();
   rightWing.set_value(!rightWing.get_value());
   chassis.set_swing_pid(ez::RIGHT_SWING, 45, SWING_SPEED);
   setIntake(-127);
   chassis.wait_drive();
   rightWing.set_value(!rightWing.get_value());
-  chassis.set_drive_pid(20,127);//
+  chassis.set_drive_pid(20, 127);  //
   chassis.wait_drive();
   chassis.set_swing_pid(ez::RIGHT_SWING, 90, SWING_SPEED);
   chassis.wait_drive();
   setIntake(0);
-  chassis.set_drive_pid(20,127); //
+  chassis.set_drive_pid(20, 127);  //
   setIntake(127);
   chassis.wait_drive();
-  pros :: delay(400);
-  chassis.set_turn_pid(-65,80); //
+  pros ::delay(400);
+  chassis.set_turn_pid(-65, 80);  //
   chassis.wait_drive();
   setIntake(-127);
-  chassis.set_drive_pid(28,127);
+  chassis.set_drive_pid(28, 127);
   chassis.wait_drive();
-  chassis.set_drive_pid(-26,127);
+  chassis.set_drive_pid(-26, 127);
   chassis.wait_drive();
-  chassis.set_turn_pid(90,127);
+  chassis.set_turn_pid(90, 127);
   chassis.wait_drive();
   setIntake(127);
-  chassis.set_drive_pid(-24,127);
+  chassis.set_drive_pid(-24, 127);
   chassis.wait_drive();
-  chassis.set_turn_pid(-90,127);
+  chassis.set_turn_pid(-90, 127);
   chassis.wait_drive();
   ledouble();
-  chassis.set_drive_pid(-100,127);
+  chassis.set_drive_pid(-100, 127);
   chassis.wait_until(-40);
-  pros :: delay(200); 
-  chassis.set_swing_pid(ez::RIGHT_SWING, -142,80);
+  pros ::delay(200);
+  chassis.set_swing_pid(ez::RIGHT_SWING, -142, 80);
   chassis.wait_drive();
   ledouble();
   setIntake(-127);
-  chassis.set_drive_pid(100,127);
+  chassis.set_drive_pid(100, 127);
   arm.set_value(!arm.get_value());
   chassis.wait_until(60);
 }
@@ -426,7 +422,7 @@ void bitchassAutonL() {
   chassis.set_turn_pid(-50, TURN_SPEED);
   chassis.wait_drive();
   setIntake(0);
-  pros :: Task shoot_cata(cataAysnc, TASK_PRIORITY_MIN);
+  pros ::Task shoot_cata(cataAysnc, TASK_PRIORITY_MIN);
   pros ::delay(100);
   chassis.set_swing_pid(ez::RIGHT_SWING, 50, SWING_SPEED);
   chassis.wait_drive();
@@ -439,7 +435,7 @@ void bitchassAutonL() {
   chassis.set_turn_pid(222, 90);
   chassis.wait_drive();
   chassis.set_drive_pid(22, 127);
-  pros :: Task shoot_cat(cataAysnc, TASK_PRIORITY_MIN);
+  pros ::Task shoot_cat(cataAysnc, TASK_PRIORITY_MIN);
   pros ::delay(100);
 
   chassis.set_drive_pid(100, 127);
@@ -465,7 +461,7 @@ void bitchassAutonL() {
   chassis.wait_drive();
   pros ::delay(400);
   setIntake(0);
-  pros :: Task shoot_ca(cataAysnc, TASK_PRIORITY_MIN);
+  pros ::Task shoot_ca(cataAysnc, TASK_PRIORITY_MIN);
   pros ::delay(200);
   chassis.set_turn_pid(100, TURN_SPEED);
   chassis.wait_drive();
@@ -474,59 +470,58 @@ void bitchassAutonL() {
 }
 
 void endgameL() {
-  arm.set_value(!arm.get_value()); 
-  chassis.set_drive_pid(10,80);
+  arm.set_value(!arm.get_value());
+  chassis.set_drive_pid(10, 80);
   chassis.wait_drive();
   chassis.set_drive_pid(70, 127);
   chassis.wait_drive();
-  chassis.set_turn_pid(-90, 127); //
+  chassis.set_turn_pid(-90, 127);  //
   chassis.wait_drive();
   setIntake(127);
-  chassis.set_drive_pid(-8,127);
+  chassis.set_drive_pid(-8, 127);
   chassis.wait_drive();
-  chassis.set_turn_pid(20,127);
+  chassis.set_turn_pid(20, 127);
   chassis.wait_drive();
   setIntake(-127);
-  chassis.set_drive_pid(10,127);
+  chassis.set_drive_pid(10, 127);
   chassis.wait_drive();
-  chassis.set_drive_pid(-10,127);
+  chassis.set_drive_pid(-10, 127);
   chassis.wait_drive();
-  chassis.set_turn_pid(-90,127);
+  chassis.set_turn_pid(-90, 127);
   chassis.wait_drive();
   cataAysnc();
   setIntake(0);
   rightWing.set_value(!rightWing.get_value());
-  chassis.set_drive_pid(-65,127);
+  chassis.set_drive_pid(-65, 127);
   chassis.wait_until(-45);
-  chassis.set_drive_pid(10,127);
+  chassis.set_drive_pid(10, 127);
   chassis.wait_drive();
   setIntake(127);
-  chassis.set_drive_pid(47,127);
+  chassis.set_drive_pid(47, 127);
   chassis.wait_drive();
   rightWing.set_value(!rightWing.get_value());
-  chassis.set_drive_pid(-10,127);
+  chassis.set_drive_pid(-10, 127);
   chassis.wait_drive();
-  chassis.set_swing_pid(RIGHT_SWING,65,80);
+  chassis.set_swing_pid(RIGHT_SWING, 65, 80);
   chassis.wait_drive();
   setIntake(0);
-  chassis.set_drive_pid(-64,127);
+  chassis.set_drive_pid(-64, 127);
   chassis.wait_drive();
-  chassis.set_turn_pid(-35,127);
-  chassis.wait_drive();
-  leftWing.set_value(!leftWing.get_value());
-  chassis.set_drive_pid(-24,100);
-  chassis.wait_drive();
-  chassis.set_swing_pid(LEFT_SWING,-90,127);
+  chassis.set_turn_pid(-35, 127);
   chassis.wait_drive();
   leftWing.set_value(!leftWing.get_value());
-  chassis.set_turn_pid(-75,100);
+  chassis.set_drive_pid(-24, 100);
   chassis.wait_drive();
-  chassis.set_drive_pid(-76,127);
+  chassis.set_swing_pid(LEFT_SWING, -90, 127);
+  chassis.wait_drive();
+  leftWing.set_value(!leftWing.get_value());
+  chassis.set_turn_pid(-75, 100);
+  chassis.wait_drive();
+  chassis.set_drive_pid(-76, 127);
   chassis.wait_drive();
 }
 
-void pluh ()
-{
+void pluh() {
   chassis.set_turn_pid(-30, 80);
   chassis.wait_drive();
   chassis.set_drive_pid(-28 * 2, 127);
@@ -590,21 +585,25 @@ void autonSkills() {
   rightWing.set_value(!rightWing.get_value());
   chassis.set_swing_pid(LEFT_SWING, 65, 127);
   chassis.wait_drive();
-  chassis.set_drive_pid(-30,127);
+  chassis.set_drive_pid(-30, 127);
   chassis.wait_drive();
-  chassis.set_turn_pid(0, 127); // change from left swing
+  chassis.set_turn_pid(0, 127);  // change from left swing
   chassis.wait_drive();
-  chassis.set_drive_pid(-100,127);
+  chassis.set_drive_pid(-100, 127);
   chassis.wait_until(-25);
-  chassis.set_drive_pid(40,127);
+  chassis.set_drive_pid(40, 127);
   chassis.wait_drive();
-  chassis.set_drive_pid(-100,127);
+  chassis.set_drive_pid(-100, 127);
   chassis.wait_until(-32);
   chassis.set_swing_pid(RIGHT_SWING, 40, 127);
   chassis.wait_drive();
-  chassis.set_drive_pid(35,127);
+  chassis.set_drive_pid(35, 127);
   chassis.wait_drive();
   leftWing.set_value(!leftWing.get_value());
-  chassis.set_drive_pid(-100,127);
+  chassis.set_drive_pid(-100, 127);
   chassis.wait_until(-40);
+}
+
+void lemlibtest() {
+  lenny.moveTo(30, 0,0, 2000);
 }

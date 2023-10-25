@@ -1,5 +1,6 @@
 #include "main.h"
 #include "pros/adi.hpp"
+#include "lemlib/api.hpp"
 
 //Motors
 
@@ -22,6 +23,15 @@ extern pros :: ADIPort arm;
 extern pros :: ADIPort elevation; // piston 
 extern pros :: ADIPort limitswitch; // limit switch
 extern pros :: Optical colorSensor;
+extern pros :: Imu inertial;
+
+extern pros::MotorGroup left_side_motors;
+extern pros::MotorGroup right_side_motors;
+
+extern lemlib::Drivetrain_t drivetrain;
+extern lemlib::OdomSensors_t sensors;
+extern lemlib::ChassisController_t lateralController;
+extern lemlib::ChassisController_t angularController;
 
 
 #define leftFrontPort 13

@@ -20,6 +20,7 @@ void bitchassAutonL();
 void endgameL();
 void pluh();
 void autonSkills();
+void lemlibtest();
 
 void default_constants();
 void one_mogo_constants();

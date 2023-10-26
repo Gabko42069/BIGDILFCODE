@@ -604,6 +604,10 @@ void autonSkills() {
   chassis.wait_until(-40);
 }
 
+//ASSET(path2_txt);
+
 void lemlibtest() {
-  lenny.moveTo(30, 0,0, 2000);
+  lenny.setPose(0,0,0);
+  lenny.moveTo(0,20,0,400);
+    //lenny.follow(path2_txt, 5000, 10);
 }

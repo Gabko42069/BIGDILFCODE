@@ -30,9 +30,11 @@ pros::MotorGroup right_side_motors({rightFront,rightMiddle, rightBack});
 lemlib::Drivetrain_t drivetrain = {
     &left_side_motors,
     &right_side_motors,
-    14,
+    12,
     4,
-    300};
+    300
+    //80
+    };
 
 lemlib::OdomSensors_t sensors = {
     nullptr,

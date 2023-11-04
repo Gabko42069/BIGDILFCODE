@@ -13,4 +13,9 @@ void setDrive2(double left, double right)
    rightFront = right;
 }
 
-lemlib::Chassis lenny(drivetrain, lateralController, angularController, sensors);
+/*lemlib::Chassis lenny(
+drivetrain, 
+lateralController, 
+angularController,
+sensors
+);*/

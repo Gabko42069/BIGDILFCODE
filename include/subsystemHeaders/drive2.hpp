@@ -2,4 +2,4 @@
 
 void setDrive2(double left, double right);
 
-extern lemlib::Chassis lenny;
+//extern lemlib::Chassis lenny;

@@ -76,9 +76,9 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.add_autons({
-      Auton("LENNY", lemlibtest),
-      Auton("ENDGAME LEFT", endgameL),
       Auton("WING SCORING RIGHT", DOOL3R),
+      Auton("6 BAllS in YO MOUTH", SixBallsInYoMouth),
+      Auton("ENDGAME LEFT", endgameL),
       Auton("SCORING(Right)", dool2R),
       Auton("CORNER GRAB LEFT", bitchassAutonL),
       Auton("Guarenteed 2 Right(Right)", bigDoolAutonR),
@@ -87,7 +87,7 @@ void initialize() {
 
   // Initialize chassis and auton selector
   chassis.initialize();
-  lenny.calibrate();
+  //lenny.calibrate();
   ez::as::initialize();
 }
 
@@ -124,6 +124,9 @@ void competition_initialize() {
  * will be stopped. Re-enabling the robot will restart the task, not re-start it
  * from where it left off.
  */
+
+//ASSET(path_txt)
+
 void autonomous() {
   chassis.reset_pid_targets();                         // Resets PID targets to 0
   chassis.reset_gyro();                                // Reset gyro position to 0

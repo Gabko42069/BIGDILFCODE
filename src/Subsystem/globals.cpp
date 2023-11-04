@@ -1,7 +1,8 @@
+//#include "lemlib/pid.hpp"
 #include "main.h"
 #include "pros/adi.h"
 #include "pros/motors.h"
-#include "lemlib/api.hpp"
+//#include "lemlib/api.hpp"
 
 pros ::Motor leftFront(leftFrontPort, pros ::E_MOTOR_GEARSET_06,true);
 pros ::Motor leftMiddle(leftMiddlePort, pros ::E_MOTOR_GEARSET_06,true);
@@ -26,14 +27,14 @@ pros::Imu inertial(inertialPort);
 
 pros::MotorGroup left_side_motors({leftFront,leftMiddle,leftBack});
 pros::MotorGroup right_side_motors({rightFront,rightMiddle, rightBack});
-
+/*
 lemlib::Drivetrain_t drivetrain = {
     &left_side_motors,
     &right_side_motors,
     12,
     4,
-    300
-    //80
+    300,
+    80
     };
 
 lemlib::OdomSensors_t sensors = {
@@ -58,3 +59,7 @@ lemlib::ChassisController_t angularController = {
     7,
     500,
     5};
+
+lemlib::DriveCurveFunction_t driveCurve = {};
+ */
+

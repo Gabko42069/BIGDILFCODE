@@ -1,7 +1,8 @@
 #include "autons.hpp"
 
 #include "EZ-Template/util.hpp"
-#include "lemlib/api.hpp"
+// #include "lemlib/api.hpp"
+// #include "lemlib/asset.hpp"
 #include "main.h"
 
 const int DRIVE_SPEED = 110;  // This is 110/127 (around 87% of max speed).  We don't suggest making this 127.
@@ -301,7 +302,6 @@ void bigDoolAutonR() {
 
 void DOOL3R()  // 2nd arm triball
 {
-  arm.set_value(!arm.get_value());
   chassis.set_drive_pid(10, 80);
   chassis.wait_drive();
   chassis.set_drive_pid(70, 127);
@@ -310,17 +310,19 @@ void DOOL3R()  // 2nd arm triball
   chassis.wait_drive();
   setIntake(127);
   cataBysnc();
-  chassis.set_drive_pid(-41, 127);  // first backup
+  chassis.set_drive_pid(-33, 127);  // first backup
   chassis.wait_drive();
   chassis.set_turn_pid(-45, 80);  // turn to 3rd tribal
   chassis.wait_drive();
   setIntake(-127);
-  chassis.set_drive_pid(14, 127);
-  chassis.wait_drive();
+  chassis.set_drive_pid(22, 127);
+  pros::delay(300);
   rightWing.set_value(!rightWing.get_value());
+  chassis.wait_drive();
   chassis.set_drive_pid(-10, 127);
   chassis.wait_drive();
   rightWing.set_value(!rightWing.get_value());
+  setIntake(0);
   chassis.set_turn_pid(-90, 127);
   chassis.wait_drive();
   chassis.set_turn_pid(85, 127);
@@ -328,13 +330,13 @@ void DOOL3R()  // 2nd arm triball
   chassis.wait_drive();
   // rightWing.set_value(!rightWing.get_value());
   setIntake(127);
-  pros ::delay(1000);
+  pros ::delay(300);
   chassis.set_turn_pid(225, 127);
   chassis.wait_drive();
   setIntake(-127);
-  chassis.set_drive_pid(12, 100);
+  chassis.set_drive_pid(19, 100);
   chassis.wait_drive();
-  chassis.set_drive_pid(-12, 100);
+  chassis.set_drive_pid(-22, 100);
   chassis.wait_drive();
   chassis.set_turn_pid(87, 127);
   chassis.wait_drive();
@@ -350,9 +352,13 @@ void DOOL3R()  // 2nd arm triball
   ledouble();
   chassis.set_swing_pid(RIGHT_SWING, -135, SWING_SPEED);
   chassis.wait_drive();
-  chassis.set_drive_pid(60, 127);
+  chassis.set_drive_pid(30, 127);
   chassis.wait_drive();
-  arm.set_value(!arm.get_value());
+  chassis.set_turn_pid(135,127);
+  chassis.wait_drive();
+  backWing.set_value(!backWing.get_value());
+  chassis.set_drive_pid(-20,127);
+  chassis.wait_drive();
 }
 void dool2R() {
   arm.set_value(!arm.get_value());
@@ -604,10 +610,88 @@ void autonSkills() {
   chassis.wait_until(-40);
 }
 
-//ASSET(path2_txt);
+// ASSET(path2_txt);
+// ASSET(from0_txt);
 
-void lemlibtest() {
-  lenny.setPose(0,0,0);
-  lenny.moveTo(0,20,0,400);
-    //lenny.follow(path2_txt, 5000, 10);
+void SixBallsInYoMouth() {
+  // forward intake
+  rightWing.set_value(!rightWing.get_value());
+  pros::delay(400);
+  rightWing.set_value(!rightWing.get_value());
+  pros::delay(300);
+  chassis.set_drive_pid(8, 127);
+  chassis.wait_drive();
+  cataBysnc();
+  chassis.set_drive_pid(38, 127);
+  setIntake(-127);
+  chassis.wait_drive();
+  // backward swing corner
+  chassis.set_drive_pid(-64, 127);
+  chassis.wait_drive();
+  chassis.set_swing_pid(ez::LEFT_SWING, -52, 127);
+  chassis.wait_drive();
+  setIntake(0);
+  //leftWing.set_value(!leftWing.get_value());
+  chassis.set_drive_pid(-65, 127,true);
+  chassis.wait_drive();
+ /*leftWing.set_value(!leftWing.get_value());
+  chassis.set_drive_pid(-14,127);
+  chassis.wait_drive();
+  pros::delay(400);
+  chassis.set_swing_pid(LEFT_SWING,-75,127);
+  chassis.wait_drive();
+  // push 2 into goal
+  
+  chassis.set_drive_pid(-40, 127);
+  chassis.wait_until(-20);
+  */
+  // swing around to outake no3
+  // check if we dont need next 4 lines if swing works
+  chassis.set_drive_pid(30, 127);
+  chassis.wait_drive();
+   chassis.set_swing_pid(LEFT_SWING, 45, 127);
+  chassis.wait_drive();
+  chassis.set_turn_pid(45, 127);
+  chassis.wait_drive();
+  chassis.set_drive_pid(75, 127);
+  chassis.wait_drive();
+  chassis.set_turn_pid(150, 127);
+  chassis.wait_drive();
+  setIntake(127);
+  pros ::delay(500);
+  // aim for no4 might not be at a 45 degree angle
+  chassis.set_turn_pid(40, 127);
+  chassis.wait_drive();
+  chassis.set_drive_pid(42, 127, true);  // change to hit the triball
+  setIntake(-127);
+  chassis.wait_drive();
+  // backup an turn hit no5
+  chassis.set_drive_pid(-5, 127);
+  chassis.wait_drive();
+  rightWing.set_value(!rightWing.get_value());
+  chassis.set_turn_pid(190, 100);
+  pros::delay(300);
+  rightWing.set_value(!rightWing.get_value());
+  chassis.wait_drive();
+  setIntake(127);
+  pros ::delay(500);
+  // AIM FOR SIX AND RUn it (need to change degree and distance)
+  chassis.set_turn_pid(-55, 127);
+  chassis.wait_drive();
+  chassis.set_drive_pid(32, 127);
+  setIntake(-127);
+  chassis.wait_drive();
+  chassis.set_drive_pid(-39, 127);
+  setIntake(0);
+  chassis.wait_drive();
+  // could be clutch asf. NOT CLUTCH 
+  chassis.set_turn_pid(359, 80);
+  pros :: delay(1000);
+  setIntake(127);
+  chassis.wait_drive();
+  // smash em in 
+  ledouble();
+  chassis.set_drive_pid(-65,127);
+  chassis.wait_until(-40);
+  ledouble();
 }
